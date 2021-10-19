@@ -4,7 +4,9 @@ variable "access_key" {
 variable "secret_key" {
   type = string
 }
-variable "region" {}
+variable "region" {
+  region = us-west-2
+}
 
 variable "ami" {
     type    = string
