@@ -5,7 +5,7 @@ variable "secret_key" {
   type = string
 }
 variable "region" {
-  region = us-west-2
+  region = "us-west-2"
 }
 
 variable "ami" {
