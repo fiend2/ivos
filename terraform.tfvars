@@ -1,3 +1,3 @@
-access_key = "AKIARTVXVHKHHXOEJXUI"
-secret_key = "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"
+access_key = file("/opt/access_key")
+secret_key = "/opt/secret_key"
 region     = "us-west-2"
