@@ -5,11 +5,12 @@ pipeline {
 }
     
 	stages {
-	  stage ('Git Checkout') {
+	 /* stage ('Git Checkout') {
 	      steps {
 	          git branch: 'main', credentialsId: 'token', url: 'https://github.com/fiend2/ivos.git'
 	      }
 	  }  
+	  */
 	  stage ('Terraform Init') {
 	    steps {
 		  sh 'terraform init'
