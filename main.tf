@@ -35,4 +35,7 @@ resource "aws_security_group" "sg" {
         Name = "sg"
 }
 }
+output "owner_id_and_arn" {
+  value = "owner_id = ${aws_security_group.sg.owner_id} and arn = ${aws_security_group.sg.arn}"
+}
 
