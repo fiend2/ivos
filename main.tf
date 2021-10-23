@@ -37,7 +37,7 @@ resource "aws_security_group" "sg" {
 }
 
 resource "aws_instance" "testing" {
-    ami           = "ami-033be6e7ed8de1043"
+    ami           = "ami-0d4bb0ed38a4d425e"
     instance_type = "t2.micro"
     key_name = "transit_test.pem"
     user_data = <<-EOF
