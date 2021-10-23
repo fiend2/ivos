@@ -48,7 +48,7 @@ resource "aws_instance" "testing" {
                 service httpd start
                 EOF
     tags = {
-        Name = test
+        Name = "test"
     }
 }
 
