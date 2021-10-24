@@ -39,7 +39,8 @@ resource "aws_security_group" "sg" {
 resource "aws_instance" "testing" {
     ami           = "ami-0d038c75b3e9426f7"
     instance_type = "t2.micro"
-    // key_name = "/opt/transit_test.pem"
+    vpc_security_group_ids = [aws_security_group.sg.id]
+    key_name = "/opt/transit_test.pem"
     user_data = <<-EOF
                 #!/bin/bash
                 apt install httpd -y
