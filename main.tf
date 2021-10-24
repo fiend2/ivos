@@ -36,11 +36,17 @@ resource "aws_security_group" "sg" {
 }
 }
 
+resource "aws_key_pair" "script_key" {
+  key_name   = "script_key"
+  public_key = "${file("script_key.pub")}"
+  
+}
+
 resource "aws_instance" "testing" {
     ami           = "ami-0d038c75b3e9426f7"
     instance_type = "t2.micro"
     vpc_security_group_ids = [aws_security_group.sg.id]
-    key_name = "/root/.ssh/id_rsa.pub"
+    key_name = "${aws_key_pair.script_key.key_name}"
     user_data = <<-EOF
                 #!/bin/bash
                 apt install httpd -y
