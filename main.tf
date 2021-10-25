@@ -15,6 +15,7 @@ locals {
         }
   ]
 }
+//------------------------------security group----------------------------
 resource "aws_security_group" "sg" {
   name        = "sg"
   description = "Allow TLS inbound traffic"
@@ -41,7 +42,7 @@ resource "aws_key_pair" "script_key" {
   public_key = "${file("script_key.pub")}"
   
 }
-
+//-------------------------------ec2------------------------------
 resource "aws_instance" "testing" {
     ami           = "ami-0d038c75b3e9426f7"
     instance_type = "t2.micro"
@@ -57,6 +58,21 @@ resource "aws_instance" "testing" {
     tags = {
         Name = "test"
     }
+}
+
+//-------------------------------s3------------------------------
+  
+resource "aws_s3_bucket" "test" {
+  bucket = "test-02589"
+  acl    = "private"
+
+  versioning {
+    enabled = true
+  }
+
+  object_lock_configuration {
+    object_lock_enabled = "Enabled"
+  }
 }
 
 
